@@ -16,7 +16,6 @@ public class Main {
 
         try (Connection conn = DriverManager.getConnection("jdbc:h2:./src/carsharing/db/" + DBName)) {
 
-            //STEP 3: Execute a query
             stmt = conn.createStatement();
             String sql =  """
                     CREATE TABLE COMPANY (
@@ -24,7 +23,6 @@ public class Main {
                     NAME VARCHAR_IGNORECASE(255),
                     PRIMARY KEY ( id ))
                      """;
-
             DeleteDbFiles.execute("./src/carsharing/db", "carsharing", true);
             stmt.executeUpdate(sql);
             conn.setAutoCommit(true);
