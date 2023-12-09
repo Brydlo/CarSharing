@@ -18,12 +18,13 @@ public class Main {
 
             stmt = conn.createStatement();
             String sql =  """
-                    CREATE TABLE COMPANY (
+                    CREATE TABLE IF NOT EXISTS COMPANY (
                     ID INTEGER not NULL, 
                     NAME VARCHAR_IGNORECASE(255),
                     PRIMARY KEY ( id ))
                      """;
-            DeleteDbFiles.execute("./src/carsharing/db", "carsharing", true);
+
+//            DeleteDbFiles.execute("./src/carsharing/db", "carsharing", true);
             stmt.executeUpdate(sql);
             conn.setAutoCommit(true);
         } catch(SQLException se) {
